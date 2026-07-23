@@ -3,8 +3,13 @@
 Simple Spring Boot app that return a greeting
 
 ## Contains concepts as
-+ Mockito
++ JPA Entity
++ JPA Repository
++ DTO
++ Mockito Mocks
 + Spring MVC
++ Annotations: @RestController
++ Spring Mock-MVC
 
 ## Tools
 + Postman 

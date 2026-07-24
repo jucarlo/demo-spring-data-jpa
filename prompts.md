@@ -12,3 +12,17 @@
 # Session 3 target: Create a RESTful Controller with Spring MVC
 1. In the directory `dev.jclp.demo` create a new package called `controller`. Create a new class called GreetingController. Annotate the class with the Spring annotation @RestController. Add a private final property for the GreetingService and provide a constructor, do not annotate the constructor, Spring will automatically  perform dependency injection using the constructor. Create a method called getGreeting to return the GreetingDto provided by the getGreeting method of the greetingService. Annotate the method for a HTTP GET operation on the path `api/v1/greeting`.
 2. Create a test for the controller using Spring MockMVC and Mockito Mocks to verify the HTTP GET operation is working properly. Just use Mockito, do not use the Spring context for the test.
+
+# Session 3 target: Initializing Data with Spring Boot
+1. In the directory `dev.jclp.demo` create a new package called `bootstrap`. In the `bootstrap` package, complete the following tasks:
+    - Create a class called InitEnglishGreeting which implements the Spring interface CommandLineRunner. Annotate the
+      class as a Spring Component. Annotate the class with `@Profile` not equal to "spanish". Use constructor injection to
+      inject the GreetingRepository to a private final property. In the implementation for `run` run method, use the
+      repository to save a new Greeting JPA Entity with a greeting of "Hello World" in English.
+    - Create a class called InitSpanishGreeting which implements the Spring interface CommandLineRunner. Annotate the
+      class as a Spring Component. Annotate the class with `@Profile` "spanish". Use constructor injection to
+      inject the GreetingRepository to a private final property. In the implementation for `run` run method, use the
+      repository to save a new Greeting JPA Entity with a greeting of "Hello World" in Spanish.
+2. Create two new Spring Boot Tests. One test to verify a greeting of hello world has been saved to the database when no active
+   profile has been set. And a second to test that greeting of hello world in Spanish has been added to the database
+   when the profile "spanish" is active.
